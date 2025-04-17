@@ -1,0 +1,25 @@
+# LLMO Configuration File
+
+# LLM Providers
+llmProviders:
+  - name: siliconflow
+    apiEndpoint: https://api.siliconflow.cn/v1/chat/completions
+    authType: bearer
+    authEnvVar: YOUR_API_KEY
+    models:
+      - Qwen/QwQ-32B
+
+# MCP Servers (Local Processes)
+mcpServers:
+  - name: filesystem
+    command: npx
+    args:
+      - -y
+      - "@modelcontextprotocol/server-filesystem"
+      - "/PATH/Desktop/MCP"
+
+
+# Timeouts (in milliseconds)
+timeouts:
+  mcpResponse: 30000       # 30 seconds
+  gracefulShutdown: 5000   # 5 seconds
